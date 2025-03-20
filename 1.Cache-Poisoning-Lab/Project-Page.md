@@ -1,8 +1,5 @@
-# Aboiye-DevSecOps-Projects
-
-Documentation for my DevSecOps Projects
-
-## Cache Poisoning Lab
+# Cache Poisoning Lab
+***Abioye Oyatoye***
 
 This project is a Vagrant-based local lab designed to explore cache poisoning vulnerabilities, exploit them, and learn how to patch them. It simulates a web application stack with a web server, caching server, load balancer, and attacker machine, providing hands-on experience with cybersecurity concepts like cache key manipulation, HTTP response splitting, and parameter cloaking.
 
@@ -46,12 +43,24 @@ Vagrant
 VirtualBox (or another Vagrant provider)
 Basic knowledge of Linux, networking, and HTTP
 
+## Installing Vagrant on Window
+
+Read, download and install vagrant [here](https://www.geeksforgeeks.org/what-is-vagrant/)
+
+## SnapShot on Installing VirtualBox on Windows System
+
+Go download VirtualBox, go to the official site virtualbox.org and download the latest version for windows.
+
+![Alt Text](https://media.geeksforgeeks.org/wp-content/uploads/20200123114435/VirtualBox-Windows-Download.png)
+
+Then follow the step by step guide [Here](https://www.geeksforgeeks.org/how-to-install-virtualbox-on-windows/)
+
 ## Setup Instructions
 
 Clone the Repository:
 
 ```bash
-git clone <git@github.com>:Abwonder/Aboiye-DevSecOps-Projects.git
+git clone git@github.com:Abwonder/Aboiye-DevSecOps-Projects.git
 cd cache-poisoning-lab
 ```
 
