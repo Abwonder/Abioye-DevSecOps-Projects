@@ -21,7 +21,7 @@ Below is a list of projects in this repository. Each has its own directory with 
 
 | Project Name                  | Description                                      | Technologies           | Directory          |
 |-------------------------------|--------------------------------------------------|------------------------|--------------------|
-| Cache Poisoning Lab           | A lab to exploit and secure cache poisoning vulnerabilities | Vagrant, Nginx, Varnish, HAProxy | [/cache-poisoning-lab](./cache-poisoning-lab) |
+| Cache Poisoning Lab           | A lab to exploit and secure cache poisoning vulnerabilities | Vagrant, Nginx, Varnish, HAProxy | [/cache-poisoning-lab](./1.Cache-Poisoning-Lab) |
 | *(Add more projects here)*    | *(Description)*                                  | *(Tech stack)*         | *(Link)*           |
 
 *More projects will be added as I continue to explore DevSecOps concepts.*

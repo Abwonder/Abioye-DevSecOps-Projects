@@ -115,7 +115,7 @@ curl -H "Host: example.com" -H "Accept-Encoding: gzip" "<http://192.168.50.30/dy
 
 ## Patching Vulnerabilities
 
-There is another whole section one fixing the vulnerabilities, the link to the repository holding the vagrant with the patched vulnerabilities can be cloned from [here]()
+There is another whole section one fixing the vulnerabilities, the link to the repository holding the Vagrantfile with the patched vulnerabilities can be cloned from [here]()
 
 Re-provision VMs with updated configs:
 
@@ -140,11 +140,11 @@ Implement mitigations like input sanitization, cache key normalization, and head
 
 ## Patching Details
 
-Nginx: Sanitizes input with htmlspecialchars and adds Cache-Control: no-store.
-Varnish: Keys on headers, skips caching dynamic content, respects backend cache directives.
-HAProxy: Rejects malformed headers and rate-limits requests.
+**Nginx:** Sanitizes input with htmlspecialchars and adds Cache-Control: no-store.
+**Varnish:** Keys on headers, skips caching dynamic content, respects backend cache directives.
+**HAProxy:** Rejects malformed headers and rate-limits requests.
 
-Contributing
+## Contributing
 
 Feel free to fork this repo, enhance the lab (e.g., add CDN caching), and submit pull requests!
 License
