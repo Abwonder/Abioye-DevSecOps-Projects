@@ -2,7 +2,6 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![GitHub stars](https://img.shields.io/github/stars/Abwonder/Aboiye-DevSecOps-Projects?style=social)](https://github.com/Abwonder/Aboiye-DevSecOps-Projects/stargazers)
 
-
 Welcome to my DevSecOps Portfolio! This repository is a collection of hands-on projects demonstrating my skills in development, security, and operations. Each project is designed to solve real-world problems, integrating secure coding practices, infrastructure automation, and vulnerability analysis. I created this portfolio to showcase my expertise for job applications in the DevSecOps field.
 
 ## About Me
