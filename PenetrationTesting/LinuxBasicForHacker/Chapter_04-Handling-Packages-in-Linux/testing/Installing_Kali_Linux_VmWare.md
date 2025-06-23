@@ -298,9 +298,19 @@ OR
 
 Download this Bash script, open the directory on the terminal, and grant it execution permissions:
 
+[Download Here](vsCode_Installer.sh)
+
 ```bash
-sudo chmod u+x Install_vsCode.sh
+sudo chmod u+x vsCode_Installer.sh
 ```
+
+Now, run the script:
+
+```bash
+sudo ./vsCode_Installer.sh
+```
+
+![](assets/60_vsCodeInstaller.png)
 
 ---
 
