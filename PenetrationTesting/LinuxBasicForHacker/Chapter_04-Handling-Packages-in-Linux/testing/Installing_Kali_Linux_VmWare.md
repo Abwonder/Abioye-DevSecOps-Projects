@@ -84,35 +84,102 @@ Before completing the setup:
 4. Set **Network Adapter**:
    - Choose **Custom: Specific virtual network**
    - Select VMnet with **NAT** to share the host’s IP address
+  
+![settingNetwork](assets/17_setting Network.png)
+
 5. Click **Close**, then **Finish**.
+
+![](assets/19_finish_Settings.png)
 
 ---
 
 ## Step 4: Installing Kali Linux
 
 1. Start the virtual machine with **Play Virtual Machine**.
+
+![](assets/20_poweronKali.png)
+
 2. When prompted, select **Graphical Install**.
+
+![](assets/21_PickGraphic_installer.png)
+
 3. Follow the prompts:
    - Choose **language**, **location**, and **keyboard layout**
+  
+![](assets/22_chooseLang.png)
+
+![](assets/23_selectLocation.png)
+
+![](assets/24_SelectKeyboard.png)
+
    - Set a **hostname** (e.g., `kali`)
+
+![](assets/26_configureNetwork_.png)
+
    - Leave **domain name** blank
+
+![](assets/27_domain_name.png)
+
    - Create a **username** and **secure password**
+
+![](assets/28_Password.png)
+
+![](assets/29_username.png)
+
+![](assets/30_usersandpassword.png)
+
    - Configure your **time zone**
+
+![](assets/31_configureClock.png)
 
 4. Partitioning:
    - Choose **Guided – use entire disk**
+  
+![](assets/32_diskpartition.png)
+
    - Select available virtual disk (e.g., `SCSI3 (0,0,0)`)
+
+![](assets/33_select_diskPart.png)
+
    - Choose **All files in one partition**
+
+![](assets/34_selectforpartitioning.png)
+
    - Finish partitioning and **write changes to disk**
 
+![](assets/35_partitionDisks.png)
+
+
 5. Confirm writing changes to disk (**Yes**).
+
+![](assets/36_partition_table.png)
+
 6. The base system will install (takes several minutes).
+
+![](assets/37_installing_baseSystem.png)
+
 7. Select additional software:
    - Choose **GNOME**
+  
+![](assets/38_Gnome.png)
+
    - Optionally include **Top 10 tools** or **default tools**
+
+![](assets/39_selectInstalSoftware.png)
+
 8. Configure **gdm3** (default for GNOME).
+
+![](assets/40_configure_gdm.png)
+
+![](assets/40_configure_gdm.png)
+
+![](assets/41_installations.png)
+
 9. Install **GRUB bootloader**:
    - Install on `/dev/sda`
+  
+![](assets/)
+
 10. Finish installation:
     - Remove the installation ISO when prompted
     - Click **Continue** to reboot
