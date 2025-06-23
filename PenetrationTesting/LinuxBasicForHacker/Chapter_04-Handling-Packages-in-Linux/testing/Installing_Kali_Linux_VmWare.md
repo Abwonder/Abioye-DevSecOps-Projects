@@ -52,14 +52,13 @@ Let’s start VMware Workstation Pro to create a virtual machine for Kali Linux.
 ![](assets/10_otherLinux.png)  
 
 5. Set a name for the virtual machine (e.g., `Kali_Linux`).
+6. Choose a location for storing VM files (default is fine).
 
 ![set name](assets/11_nameVM.png)
 
-6. Choose a location for storing VM files (default is fine).
-
-![](assets/12_romStoreDisk.png)
-
 7. Set the disk size to **at least 20 GB** and choose **Store virtual disk as a single file**.
+
+![storing disk](assets/12_romStoreDisk.png)
 
 ---
 
@@ -68,11 +67,20 @@ Let’s start VMware Workstation Pro to create a virtual machine for Kali Linux.
 Before completing the setup:
 
 1. Click **Customize Hardware**.
+
+![customization](assets/13_customize_hardware.png)
+
 2. Set **Memory (RAM)**:
    - Minimum: 2 GB (2048 MB)
    - Recommended: 4 GB (4096 MB)
+  
+![setting rams](assets/15_setting_Ram.png)
+
 3. Set **Processors**:
    - 2 processors and 2 cores per processor
+  
+![Processor](asset/16_SettingProcessor.png)
+
 4. Set **Network Adapter**:
    - Choose **Custom: Specific virtual network**
    - Select VMnet with **NAT** to share the host’s IP address
