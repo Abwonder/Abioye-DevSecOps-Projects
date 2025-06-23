@@ -178,11 +178,19 @@ Before completing the setup:
 9. Install **GRUB bootloader**:
    - Install on `/dev/sda`
   
-![](assets/)
+![](assets/42_grubLoader.png)
+
+![](assets/43_EnterDevice.png)
 
 10. Finish installation:
     - Remove the installation ISO when prompted
     - Click **Continue** to reboot
+   
+![](assets/44_finishInstallation.png)
+
+![](assets/45_installationComplete.png)
+
+![](assets/47_finishingUnmounting.png)
 
 ---
 
@@ -190,7 +198,15 @@ Before completing the setup:
 
 After reboot:
 
+![](assets/48_Logging_In.png)
+
 - Use the **username** and **password** you created during installation.
+
+![](assets/49_EnterUserPassword.png)
+
+Install the VmTool, click on it, and allow the installation to proceed.
+
+![](assets/50_InstallTools.png)
 
 ---
 
@@ -202,10 +218,20 @@ After first login:
 sudo apt update && sudo apt upgrade -y
 ````
 
+![](assets/51_UpdateCombine.png)
+
+Note: it's possible the below screen doesn't pop up during your installation (optional)
 During update:
 
 * Select **No** for package restart prompt
 * Click **OK** to continue
+
+
+![](assets/52_packageConfig.png)
+
+![](assets/53_packageConfig2.png)
+
+![](assets/54_updatingProcess.png)
 
 ---
 
@@ -217,9 +243,14 @@ To optimize performance:
 sudo apt install open-vm-tools-desktop -y
 ```
 
+![](assets/55_InstallOpenVmTools.png)
+
+
 > 💡 Might already be installed. If not, wait for installation.
 
 Then restart the virtual machine.
+
+![](assets/56_package.png)
 
 ---
 
@@ -231,17 +262,23 @@ Then restart the virtual machine.
 sudo apt update && sudo apt upgrade -y
 ```
 
+![](assets/57_checkUpdate.png)
+
 ### 2. Verify VMware Tools:
 
 ```bash
 vmware-toolbox-cmd -v
 ```
 
+![](assets/58_verifyvmware.png)
+
 ### 3. Test Network:
 
 ```bash
 ping -c 4 google.com
 ```
+
+![](assets/59_TestNetwork.png)
 
 > ✅ If you receive replies, your internet is working correctly.
 
@@ -257,9 +294,18 @@ To install **Visual Studio Code** on Kali Linux:
 sudo apt install code -y
 ```
 
+OR
+
+Download this Bash script, open the directory on the terminal, and grant it execution permissions:
+
+```bash
+sudo chmod u+x Install_vsCode.sh
+```
+
 ---
 
-By following these steps, you've successfully installed and configured Kali Linux in VMware with essential tools and updates.
+By following these steps, you've successfully installed and configured Kali Linux in VMware with essential tools and updates. If you complete the step for VSCode, then you have successfully installed VSCode too!!
+
 
 ```
 
