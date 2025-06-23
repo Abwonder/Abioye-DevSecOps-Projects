@@ -307,9 +307,3 @@ sudo chmod u+x Install_vsCode.sh
 By following these steps, you've successfully installed and configured Kali Linux in VMware with essential tools and updates. If you complete the step for VSCode, then you have successfully installed VSCode too!!
 
 
-```
-
----
-
-Let me know if you'd like this saved to a downloadable `.md` file.
-```
