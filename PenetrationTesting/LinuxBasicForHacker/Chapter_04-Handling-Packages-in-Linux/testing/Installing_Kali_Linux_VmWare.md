@@ -10,10 +10,14 @@ To install Kali Linux, we first need the installation file (ISO).
  
 2. Click on **Downloads**.
 3. Choose the version that matches your system (usually 64-bit for modern computers).
+
+![image 2](assets/02_installer_image.png)
+
 4. Download the ISO file.
+![download_ISO file](assets/03_download_Iso.png)
 
 > 💡 **Tip:** After downloading, the file may be in `.7z` format. Use tools like **WinRAR** or **7-Zip** to extract it.
-
+![save](assets/04_saveExplorerfile.png)
 ---
 
 ## Step 2: Creating a Virtual Machine in VMware
@@ -22,12 +26,20 @@ Let’s start VMware Workstation Pro to create a virtual machine for Kali Linux.
 
 1. Open **VMware Workstation Pro**.
 2. Right-click the VMware icon and select **Run as Administrator**.
+![run as admin](assets/05_runasadmin.png)
+
 3. Click **Create a New Virtual Machine**.
+![createVM](assets/06_createNewVm.png)
 4. In the setup wizard:
    - Choose **Typical (recommended)**.
+![](assets/07_wizardNext.png)
    - Select **Installer disc image file (ISO)** and browse for the Kali Linux ISO.
+![iso select](assets/08_isoSelect.png)
    - Choose **Linux** as the guest operating system.
+![choose linux](assets/09_pickLinux.png)
    - Select **Other Linux 6.x kernel 64-bit** from the dropdown.
+![](assets/10_otherLinux.png)  
+
 5. Set a name for the virtual machine (e.g., `Kali_Linux`).
 6. Choose a location for storing VM files (default is fine).
 7. Set the disk size to **at least 20 GB** and choose **Store virtual disk as a single file**.
