@@ -3,8 +3,8 @@
 ## Step 1: Downloading Kali Linux ISO
 
 To install Kali Linux, we first need the installation file (ISO).
-[]
-1. Visit the [official Kali Linux website](https://www.kali.org/get-kali/).
+[!official_Page](/assets/01_official_kali_websit.png)
+1. Visit the [official Kali Linux website](https://www.kali.org/get-kali/)
 2. Click on **Downloads**.
 3. Choose the version that matches your system (usually 64-bit for modern computers).
 4. Download the ISO file.
